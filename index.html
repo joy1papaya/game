@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080B18">
+<title>NEON FLUX: Escape the Digital Void</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-screen="loading">
+<canvas id="c" aria-label="NEON FLUX game"></canvas>
+
+<div id="loading" class="screen"><h1 class="logo">NEON FLUX</h1><div class="bar"><i></i></div></div>
+
+<main id="menu" class="screen">
+  <h1 class="logo">NEON FLUX</h1><p class="sub">Escape the Digital Void</p>
+  <p class="stats">Best <b id="mBest">0</b> · Fragments <b id="mBank">0</b></p>
+  <button class="btn pri" data-act="play">Play</button>
+  <button class="btn" data-act="daily">Daily Challenge</button>
+  <p class="stats" id="mDaily"></p>
+  <button class="btn" data-act="how">How to Play</button>
+  <button class="btn" data-act="ach">Achievements &amp; Cores</button>
+  <button class="btn" data-act="set">Settings</button>
+</main>
+
+<section id="howto" class="screen">
+  <h2>How to Play</h2>
+  <p>Switch lanes to dodge <b class="mg">magenta obstacles</b> and flashing <b class="mg">lane hazards</b>. Collect <b class="li">lime fragments</b> to build combos and charge your meter.</p>
+  <p><b class="vi">SHIELD</b> (40 charge) absorbs one hit. <b class="vi">SLOW</b> (60 charge) slows the world briefly. Near misses earn bonus points.</p>
+  <p class="ctl">Keyboard: ← → or A/D move · Space ability · P/Esc pause · Enter start.<br>Touch: tap left/right side or swipe; use the ability buttons.</p>
+  <button class="btn pri" data-act="howok">Got it</button>
+</section>
+
+<section id="settings" class="screen">
+  <h2>Settings</h2>
+  <button class="btn" data-act="tsfx" id="bSfx"></button>
+  <button class="btn" data-act="tshake" id="bShake"></button>
+  <button class="btn" data-act="tred" id="bRed"></button>
+  <p class="ctl">Keyboard: ← → / A D lanes · Space ability · P or Esc pause · Enter start/restart.<br>Progress is saved only in this browser on this device.</p>
+  <button class="btn warn" data-act="clear">Clear saved data</button>
+  <button class="btn pri" data-act="back">Back</button>
+</section>
+
+<section id="shop" class="screen">
+  <h2>Achievements</h2><ul id="achList"></ul>
+  <h2>Core Colors</h2><div id="coreList"></div>
+  <p class="stats">Fragments <b id="sBank">0</b></p>
+  <button class="btn pri" data-act="back">Back</button>
+</section>
+
+<section id="pause" class="screen">
+  <h2>Paused</h2>
+  <button class="btn pri" data-act="resume">Resume</button>
+  <button class="btn" data-act="restart">Restart</button>
+  <button class="btn" data-act="set">Settings</button>
+  <button class="btn" data-act="menu">Main Menu</button>
+</section>
+
+<section id="over" class="screen">
+  <h2>Run Over</h2>
+  <p class="big" id="oScore">0</p>
+  <p class="li" id="newbest" hidden>★ NEW PERSONAL BEST ★</p>
+  <p class="stats">Fragments <b id="oFrag">0</b> · Best combo <b id="oCombo">0</b> · Time <b id="oTime">0s</b></p>
+  <button class="btn pri" data-act="restart">Restart</button>
+  <button class="btn" data-act="menu">Main Menu</button>
+  <button class="btn" id="rewarded" data-act="rewarded" hidden>Continue (ad)</button>
+</section>
+
+<div id="hud" aria-live="off">
+  <div class="top">
+    <div><small>SCORE</small><b id="score">0</b></div>
+    <div><small>BEST</small><b id="best">0</b></div>
+    <div><small>FRAGS</small><b id="frags" class="li">0</b></div>
+    <div><small>COMBO</small><b id="combo" class="cy">×1</b></div>
+    <button class="pbtn" data-act="pausebtn" aria-label="Pause">❚❚</button>
+  </div>
+  <div class="meter"><i id="meter"></i></div>
+  <div id="shieldTxt" class="shield"></div>
+  <div class="abil">
+    <button class="btn ab" data-act="shield" id="bShield">SHIELD<small>40</small></button>
+    <button class="btn ab" data-act="slow" id="bSlow">SLOW<small>60</small></button>
+  </div>
+</div>
+<div id="count" aria-live="assertive" hidden></div>
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
